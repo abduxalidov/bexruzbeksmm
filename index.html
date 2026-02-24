@@ -1,0 +1,768 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bexruzbek SMM</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0A0E14;
+    --card-bg: #111820;
+    --card-border: #1A2332;
+    --gold: #D4A853;
+    --gold-light: #E8C97A;
+    --teal: #2DD4A8;
+    --text-primary: #F0F0F0;
+    --text-secondary: #8A9BB0;
+    --text-muted: #5A6A7A;
+    --button-text: #0A0E14;
+    --star-yellow: #FFD700;
+    --premium-purple: #9B59B6;
+    --telegram-blue: #0088CC;
+    --instagram-pink: #E1306C;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    position: sticky;
+    top: 0;
+    background: rgba(10,14,20,0.92);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  .brand { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; }
+  .brand span { color: var(--gold); }
+  .header-btn {
+    width: 40px; height: 40px; border-radius: 20px;
+    background: rgba(212,168,83,0.12);
+    border: 1px solid rgba(212,168,83,0.2);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: transform 0.2s, background 0.2s;
+    text-decoration: none;
+  }
+  .header-btn:hover { transform: scale(1.08); background: rgba(212,168,83,0.2); }
+  .header-btn svg { width: 16px; height: 16px; }
+
+  /* Hero */
+  .hero {
+    margin: 0 16px 32px;
+    background: linear-gradient(135deg, #1A2332, #0D1117, #0A0E14);
+    border-radius: 20px;
+    padding: 28px;
+    border: 1px solid var(--card-border);
+    animation: fadeUp 0.8s ease-out;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(212,168,83,0.1);
+    padding: 6px 12px; border-radius: 20px;
+    border: 1px solid rgba(212,168,83,0.2);
+    margin-bottom: 20px;
+    font-size: 12px; font-weight: 600; color: var(--gold);
+    letter-spacing: 0.5px;
+  }
+  .hero h1 {
+    font-size: 26px; font-weight: 800;
+    line-height: 1.3; margin-bottom: 12px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p {
+    font-size: 15px; color: var(--text-secondary);
+    line-height: 1.5; margin-bottom: 24px;
+  }
+
+  /* CTA Button */
+  .cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold); color: var(--button-text);
+    padding: 14px 24px; border-radius: 14px;
+    font-size: 15px; font-weight: 700;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,168,83,0.3); }
+  .cta:active { transform: scale(0.96); }
+  .cta svg { width: 18px; height: 18px; }
+  .cta-outline {
+    background: transparent;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+  }
+  .cta-outline:hover { box-shadow: 0 8px 24px rgba(212,168,83,0.15); }
+
+  /* Section Title */
+  .section-title {
+    display: flex; align-items: center; gap: 10px;
+    padding: 0 20px; margin-bottom: 16px;
+  }
+  .section-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .section-icon.teal { background: rgba(45,212,168,0.1); }
+  .section-icon.gold { background: rgba(212,168,83,0.1); }
+  .section-title h2 {
+    font-size: 14px; font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+  .section-title h2.teal { color: var(--teal); }
+  .section-title h2.gold { color: var(--gold); }
+
+  /* Web Cards Grid */
+  .web-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; padding: 0 16px; margin-bottom: 24px;
+  }
+  .web-card {
+    background: var(--card-bg);
+    border-radius: 16px; padding: 18px;
+    border: 1px solid var(--card-border);
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+    text-decoration: none; color: inherit;
+    display: block;
+    animation: fadeUp 0.5s ease-out both;
+  }
+  .web-card:nth-child(1) { animation-delay: 0.1s; }
+  .web-card:nth-child(2) { animation-delay: 0.15s; }
+  .web-card:nth-child(3) { animation-delay: 0.2s; }
+  .web-card:nth-child(4) { animation-delay: 0.25s; }
+  .web-card:hover { transform: translateY(-4px); border-color: rgba(45,212,168,0.3); }
+  .web-card-header {
+    display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 14px;
+  }
+  .web-card-icon {
+    width: 42px; height: 42px; border-radius: 12px;
+    background: rgba(45,212,168,0.1);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .web-card-icon svg { width: 24px; height: 24px; color: var(--teal); }
+  .web-card-price {
+    font-size: 18px; font-weight: 800; color: var(--teal);
+  }
+  .web-card-name {
+    font-size: 14px; font-weight: 600; line-height: 1.4;
+  }
+  .web-card-arrow {
+    display: flex; align-items: center; gap: 4px;
+    margin-top: 10px; font-size: 12px; font-weight: 600;
+    color: var(--teal);
+  }
+  .web-card-arrow svg { width: 14px; height: 14px; }
+
+  /* Price Card */
+  .price-card {
+    background: var(--card-bg);
+    border-radius: 16px; padding: 20px;
+    margin: 0 16px 16px; border: 1px solid var(--card-border);
+    border-top: 3px solid var(--teal);
+    animation: fadeUp 0.5s ease-out both;
+  }
+  .price-card.yellow { border-top-color: var(--star-yellow); }
+  .price-card.purple { border-top-color: var(--premium-purple); }
+  .price-card.blue { border-top-color: var(--telegram-blue); }
+  .price-card.pink { border-top-color: var(--instagram-pink); }
+  .price-card-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 16px;
+  }
+  .price-card-header svg { width: 20px; height: 20px; }
+  .price-card-header h3 {
+    font-size: 17px; font-weight: 700;
+  }
+  .price-row {
+    display: flex; align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(26,35,50,0.8);
+  }
+  .price-row:last-child { border-bottom: none; }
+  .price-row-name {
+    font-size: 14px; color: var(--text-secondary); flex-shrink: 1;
+  }
+  .price-dots {
+    flex: 1; height: 1px;
+    border-bottom: 1px dashed rgba(138,155,176,0.2);
+    margin: 0 8px;
+  }
+  .price-row-price {
+    font-size: 14px; font-weight: 700; color: var(--teal);
+    white-space: nowrap;
+  }
+
+  /* Why Us */
+  .why-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; padding: 0 16px; margin-bottom: 32px;
+  }
+  .why-card {
+    background: var(--card-bg);
+    border-radius: 16px; padding: 18px;
+    border: 1px solid var(--card-border);
+    animation: fadeUp 0.5s ease-out both;
+  }
+  .why-card:nth-child(1) { animation-delay: 0.1s; }
+  .why-card:nth-child(2) { animation-delay: 0.15s; }
+  .why-card:nth-child(3) { animation-delay: 0.2s; }
+  .why-card:nth-child(4) { animation-delay: 0.25s; }
+  .why-icon {
+    width: 42px; height: 42px; border-radius: 12px;
+    background: rgba(212,168,83,0.1);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 12px;
+  }
+  .why-icon svg { width: 22px; height: 22px; color: var(--gold); }
+  .why-card h4 {
+    font-size: 14px; font-weight: 700; margin-bottom: 4px;
+  }
+  .why-card p {
+    font-size: 12px; color: var(--text-secondary); line-height: 1.4;
+  }
+
+  /* Contact */
+  .contact {
+    margin: 0 16px 24px;
+    background: linear-gradient(135deg, #1A2332, #111820);
+    border-radius: 20px; padding: 24px;
+    border: 1px solid var(--card-border);
+    animation: fadeUp 0.6s ease-out both;
+  }
+  .contact h2 {
+    font-size: 22px; font-weight: 800; margin-bottom: 4px;
+  }
+  .contact > p {
+    font-size: 14px; color: var(--text-secondary); margin-bottom: 24px;
+  }
+  .contact-row {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(26,35,50,0.8);
+    text-decoration: none; color: inherit;
+    transition: opacity 0.2s;
+  }
+  .contact-row:hover { opacity: 0.85; }
+  .contact-icon {
+    width: 42px; height: 42px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-icon.blue { background: rgba(0,136,204,0.15); }
+  .contact-icon.gold { background: rgba(212,168,83,0.15); }
+  .contact-icon svg { width: 18px; height: 18px; }
+  .contact-info { flex: 1; }
+  .contact-label {
+    font-size: 12px; color: var(--text-muted);
+    font-weight: 500; margin-bottom: 2px;
+  }
+  .contact-value {
+    font-size: 15px; font-weight: 600;
+  }
+  .contact-chevron { color: var(--text-muted); }
+  .contact-chevron svg { width: 18px; height: 18px; }
+  .contact-cta { margin-top: 24px; text-align: center; }
+
+  /* Web Services Page (hidden by default) */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  .ws-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 20px;
+    position: sticky; top: 0;
+    background: rgba(10,14,20,0.92);
+    backdrop-filter: blur(12px); z-index: 100;
+  }
+  .back-btn {
+    width: 40px; height: 40px; border-radius: 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: transform 0.2s;
+    color: var(--text-primary);
+  }
+  .back-btn:hover { transform: scale(1.08); }
+  .back-btn svg { width: 20px; height: 20px; }
+  .ws-header-title {
+    font-size: 17px; font-weight: 700; letter-spacing: 0.3px;
+  }
+
+  .ws-hero {
+    margin: 0 16px 20px;
+    background: linear-gradient(135deg, #1A2332, #0D1117);
+    border-radius: 20px; padding: 24px;
+    border: 1px solid var(--card-border);
+  }
+  .ws-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(45,212,168,0.1);
+    padding: 6px 12px; border-radius: 20px;
+    border: 1px solid rgba(45,212,168,0.2);
+    margin-bottom: 16px;
+    font-size: 12px; font-weight: 600; color: var(--teal);
+  }
+  .ws-badge svg { width: 12px; height: 12px; }
+  .ws-hero h1 {
+    font-size: 24px; font-weight: 800; line-height: 1.3; margin-bottom: 8px;
+  }
+  .ws-hero h1 span { color: var(--teal); }
+  .ws-hero p {
+    font-size: 14px; color: var(--text-secondary); line-height: 1.4;
+  }
+
+  .service-card {
+    background: var(--card-bg);
+    border-radius: 18px; margin: 0 16px 14px;
+    border: 1px solid var(--card-border);
+    overflow: hidden; cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+    text-decoration: none; color: inherit; display: block;
+    animation: fadeUp 0.5s ease-out both;
+  }
+  .service-card:nth-of-type(1) { animation-delay: 0.1s; }
+  .service-card:nth-of-type(2) { animation-delay: 0.22s; }
+  .service-card:nth-of-type(3) { animation-delay: 0.34s; }
+  .service-card:nth-of-type(4) { animation-delay: 0.46s; }
+  .service-card:hover { transform: translateY(-3px); border-color: rgba(45,212,168,0.25); }
+  .service-accent { height: 3px; width: 100%; }
+  .service-accent.teal { background: var(--teal); }
+  .service-accent.lightblue { background: #4FC3F7; }
+  .service-accent.gold { background: var(--gold); }
+  .service-accent.purple { background: #AB47BC; }
+  .service-content { padding: 20px; }
+  .service-top {
+    display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 16px;
+  }
+  .service-icon-wrap {
+    width: 52px; height: 52px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .service-icon-wrap svg { width: 28px; height: 28px; }
+  .service-price-badge {
+    background: rgba(255,255,255,0.05);
+    padding: 8px 16px; border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    font-size: 22px; font-weight: 800;
+  }
+  .service-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+  .service-card .desc {
+    font-size: 13px; color: var(--text-secondary);
+    line-height: 1.45; margin-bottom: 16px;
+  }
+  .feature-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+  .feature-row { display: flex; align-items: center; gap: 10px; }
+  .feature-check {
+    width: 22px; height: 22px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .feature-check svg { width: 12px; height: 12px; }
+  .feature-text { font-size: 13px; color: var(--text-secondary); font-weight: 500; }
+  .order-row {
+    display: flex; align-items: center; justify-content: flex-end;
+    gap: 4px; padding-top: 12px;
+    border-top: 1px solid rgba(26,35,50,0.8);
+    font-size: 13px; font-weight: 700;
+  }
+  .order-row svg { width: 16px; height: 16px; }
+
+  .bottom-cta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px; margin: 8px 16px 32px;
+    padding: 16px; border-radius: 16px;
+    background: linear-gradient(90deg, var(--gold), #C49A3C);
+    text-decoration: none; color: var(--button-text);
+    font-size: 15px; font-weight: 700;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .bottom-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,168,83,0.3); }
+  .bottom-cta svg { width: 18px; height: 18px; }
+
+  /* Footer */
+  .footer {
+    text-align: center; padding: 24px 0 32px;
+  }
+  .footer-line {
+    width: 40px; height: 3px; border-radius: 2px;
+    background: var(--card-border);
+    margin: 0 auto 16px;
+  }
+  .footer p { font-size: 12px; color: var(--text-muted); }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SVG icons inline */
+  svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+
+<!-- ========== MAIN PAGE ========== -->
+<div class="page active" id="mainPage">
+
+  <div class="header">
+    <div class="brand">Bexruzbek<span>SMM</span></div>
+    <a href="https://t.me/anvarov_bexruzbek" target="_blank" class="header-btn">
+      <svg viewBox="0 0 24 24" style="color: #D4A853"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+    </a>
+  </div>
+
+  <div class="hero">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24" style="width:12px;height:12px;color:#D4A853"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Professional SMM
+    </div>
+    <h1>Telegram va Instagram uchun<br><span>professional SMM</span> xizmatlari</h1>
+    <p>Tez, ishonchli va qulay narxlarda</p>
+    <a href="https://t.me/anvarov_bexruzbek" target="_blank" class="cta">
+      <svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+      Telegram orqali bog'lanish
+    </a>
+  </div>
+
+  <!-- Xizmatlar va Narxlar -->
+  <div class="section-title">
+    <div class="section-icon teal">
+      <svg viewBox="0 0 24 24" style="width:20px;height:20px;color:#2DD4A8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </div>
+    <h2 class="teal">XIZMATLAR VA NARXLAR</h2>
+  </div>
+
+  <div class="web-grid">
+    <a class="web-card" onclick="showPage('wsPage')">
+      <div class="web-card-header">
+        <div class="web-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="web-card-price">$15</div>
+      </div>
+      <div class="web-card-name">Web sahifa tayyorlash</div>
+      <div class="web-card-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        Batafsil
+      </div>
+    </a>
+    <a class="web-card" onclick="showPage('wsPage')">
+      <div class="web-card-header">
+        <div class="web-card-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        </div>
+        <div class="web-card-price">$15</div>
+      </div>
+      <div class="web-card-name">SMM sayt (landing page)</div>
+      <div class="web-card-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        Batafsil
+      </div>
+    </a>
+    <a class="web-card" onclick="showPage('wsPage')">
+      <div class="web-card-header">
+        <div class="web-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="2.5"/><path d="M17.5 10.5c1.7 0 3 1.3 3 3v1H21"/><circle cx="8.5" cy="6.5" r="2.5"/><path d="M3 14v-1a3 3 0 0 1 3-3h5a3 3 0 0 1 3 3v1"/></svg>
+        </div>
+        <div class="web-card-price">$20</div>
+      </div>
+      <div class="web-card-name">Brending paketi</div>
+      <div class="web-card-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        Batafsil
+      </div>
+    </a>
+    <a class="web-card" onclick="showPage('wsPage')">
+      <div class="web-card-header">
+        <div class="web-card-icon">
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        </div>
+        <div class="web-card-price">$150</div>
+      </div>
+      <div class="web-card-name">Mobil ilova</div>
+      <div class="web-card-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        Batafsil
+      </div>
+    </a>
+  </div>
+
+  <!-- Telegram Stars -->
+  <div class="price-card yellow" style="animation-delay:0.3s">
+    <div class="price-card-header">
+      <svg viewBox="0 0 24 24" style="color:#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <h3>Telegram Stars</h3>
+    </div>
+    <div class="price-row"><span class="price-row-name">50 stars</span><span class="price-dots"></span><span class="price-row-price">15 000 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">100 stars</span><span class="price-dots"></span><span class="price-row-price">30 000 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">200 stars</span><span class="price-dots"></span><span class="price-row-price">60 000 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">500 stars</span><span class="price-dots"></span><span class="price-row-price">150 000 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">1000 stars</span><span class="price-dots"></span><span class="price-row-price">300 000 so'm</span></div>
+  </div>
+
+  <!-- Telegram Premium -->
+  <div class="price-card purple" style="animation-delay:0.35s">
+    <div class="price-card-header">
+      <svg viewBox="0 0 24 24" style="color:#9B59B6"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/><path d="M5 16l-1 4h16l-1-4"/></svg>
+      <h3>Telegram Premium</h3>
+    </div>
+    <div class="price-row"><span class="price-row-name">1 oy</span><span class="price-dots"></span><span class="price-row-price">45 000 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">3 oy</span><span class="price-dots"></span><span class="price-row-price">180 000 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">6 oy</span><span class="price-dots"></span><span class="price-row-price">230 000 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">12 oy</span><span class="price-dots"></span><span class="price-row-price">320 000 so'm</span></div>
+  </div>
+
+  <!-- Telegram SMM -->
+  <div class="price-card blue" style="animation-delay:0.4s">
+    <div class="price-card-header">
+      <svg viewBox="0 0 24 24" style="color:#0088CC"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <h3>Telegram SMM</h3>
+    </div>
+    <div class="price-row"><span class="price-row-name">1000 ta garantli obunachi</span><span class="price-dots"></span><span class="price-row-price">30 000 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">1000 ta ko'rish</span><span class="price-dots"></span><span class="price-row-price">500 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">1000 ta like</span><span class="price-dots"></span><span class="price-row-price">500 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">1000 ta premium nakrutka (1 oylik)</span><span class="price-dots"></span><span class="price-row-price">99 000 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">1000 ta garantiyasiz obunachi</span><span class="price-dots"></span><span class="price-row-price">2 000 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">1000 ta story ko'rish</span><span class="price-dots"></span><span class="price-row-price">10 000 so'm</span></div>
+  </div>
+
+  <!-- Instagram SMM -->
+  <div class="price-card pink" style="animation-delay:0.45s">
+    <div class="price-card-header">
+      <svg viewBox="0 0 24 24" style="color:#E1306C"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <h3>Instagram SMM</h3>
+    </div>
+    <div class="price-row"><span class="price-row-name">1000 ta garantli obunachi</span><span class="price-dots"></span><span class="price-row-price">25 000 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">1000 ta garantiyasiz obunachi</span><span class="price-dots"></span><span class="price-row-price">5 000 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">1000 ta like</span><span class="price-dots"></span><span class="price-row-price">2 000 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">1000 ta story ko'rish</span><span class="price-dots"></span><span class="price-row-price">5 000 so'm</span></div>
+    <div class="price-row"><span class="price-row-name">1000 ta video ko'rish</span><span class="price-dots"></span><span class="price-row-price">1 000 so'm</span></div>
+  </div>
+
+  <!-- Nega Biz -->
+  <div class="section-title" style="margin-top: 8px;">
+    <div class="section-icon gold">
+      <svg viewBox="0 0 24 24" style="width:20px;height:20px;color:#D4A853"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+    </div>
+    <h2 class="gold">NEGA BIZ?</h2>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <h4>Tez bajarish</h4>
+      <p>Buyurtmalar tezkor bajariladi</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <h4>Real va sifatli trafik</h4>
+      <p>Faqat haqiqiy foydalanuvchilar</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+      </div>
+      <h4>Qulay narxlar</h4>
+      <p>Eng yaxshi narx-sifat nisbati</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+      </div>
+      <h4>Doimiy qo'llab-quvvatlash</h4>
+      <p>24/7 yordam xizmati</p>
+    </div>
+  </div>
+
+  <!-- Aloqa -->
+  <div class="contact">
+    <h2>Aloqa</h2>
+    <p>Buyurtma berish uchun bog'laning</p>
+
+    <a href="https://t.me/anvarov_bexruzbek" target="_blank" class="contact-row">
+      <div class="contact-icon blue">
+        <svg viewBox="0 0 24 24" style="color:#0088CC"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+      </div>
+      <div class="contact-info">
+        <div class="contact-label">Telegram</div>
+        <div class="contact-value">@anvarov_bexruzbek</div>
+      </div>
+      <div class="contact-chevron">
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+    </a>
+
+    
+
+    <div class="contact-cta">
+      <a href="https://t.me/anvarov_bexruzbek" target="_blank" class="cta">
+        <svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+        Buyurtma berish
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-line"></div>
+    <p>&copy; Bexruzbek SMM. All rights reserved</p>
+  </div>
+</div>
+
+<!-- ========== WEB SERVICES PAGE ========== -->
+<div class="page" id="wsPage">
+
+  <div class="ws-header">
+    <button class="back-btn" onclick="showPage('mainPage')">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+    </button>
+    <span class="ws-header-title">Web Xizmatlar</span>
+    <a href="https://t.me/anvarov_bexruzbek" target="_blank" class="header-btn">
+      <svg viewBox="0 0 24 24" style="color:#D4A853"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+    </a>
+  </div>
+
+  <div class="ws-hero">
+    <div class="ws-badge">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      Web & Brending
+    </div>
+    <h1>Web sahifa va<br><span>brending xizmatlari</span></h1>
+    <p>Biznesingiz uchun professional web sahifa va brending paketlari</p>
+  </div>
+
+  <!-- Service 1 -->
+  <a href="https://t.me/abduxalidov" target="_blank" class="service-card">
+    <div class="service-accent teal"></div>
+    <div class="service-content">
+      <div class="service-top">
+        <div class="service-icon-wrap" style="background:rgba(45,212,168,0.1)">
+          <svg viewBox="0 0 24 24" style="color:#2DD4A8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="service-price-badge" style="color:#2DD4A8">$15</div>
+      </div>
+      <h3>Web sahifa tayyorlash</h3>
+      <p class="desc">Biznesingiz uchun zamonaviy va tezkor web sahifa yaratamiz.</p>
+      <div class="feature-list">
+        <div class="feature-row"><div class="feature-check" style="background:rgba(45,212,168,0.13)"><svg viewBox="0 0 24 24" style="color:#2DD4A8"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Responsive dizayn</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(45,212,168,0.13)"><svg viewBox="0 0 24 24" style="color:#2DD4A8"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">SEO optimizatsiya</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(45,212,168,0.13)"><svg viewBox="0 0 24 24" style="color:#2DD4A8"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Tezkor yuklash</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(45,212,168,0.13)"><svg viewBox="0 0 24 24" style="color:#2DD4A8"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">1 yillik hosting</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(45,212,168,0.13)"><svg viewBox="0 0 24 24" style="color:#2DD4A8"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">SSL sertifikat</span></div>
+      </div>
+      <div class="order-row" style="color:#2DD4A8">Buyurtma berish <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+    </div>
+  </a>
+
+  <!-- Service 2 -->
+  <a href="https://t.me/abduxalidov" target="_blank" class="service-card">
+    <div class="service-accent lightblue"></div>
+    <div class="service-content">
+      <div class="service-top">
+        <div class="service-icon-wrap" style="background:rgba(79,195,247,0.1)">
+          <svg viewBox="0 0 24 24" style="color:#4FC3F7"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        </div>
+        <div class="service-price-badge" style="color:#4FC3F7">$15</div>
+      </div>
+      <h3>SMM sayt (landing page)</h3>
+      <p class="desc">SMM bizneslar uchun maxsus landing page tayyorlaymiz.</p>
+      <div class="feature-list">
+        <div class="feature-row"><div class="feature-check" style="background:rgba(79,195,247,0.13)"><svg viewBox="0 0 24 24" style="color:#4FC3F7"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Konversiyaga yo'naltirilgan</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(79,195,247,0.13)"><svg viewBox="0 0 24 24" style="color:#4FC3F7"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">CTA tugmalar</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(79,195,247,0.13)"><svg viewBox="0 0 24 24" style="color:#4FC3F7"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Narxlar bo'limi</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(79,195,247,0.13)"><svg viewBox="0 0 24 24" style="color:#4FC3F7"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Tezkor tayyor</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(79,195,247,0.13)"><svg viewBox="0 0 24 24" style="color:#4FC3F7"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Mobil moslashgan</span></div>
+      </div>
+      <div class="order-row" style="color:#4FC3F7">Buyurtma berish <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+    </div>
+  </a>
+
+  <!-- Service 3 -->
+  <a href="https://t.me/abduxalidov" target="_blank" class="service-card">
+    <div class="service-accent gold"></div>
+    <div class="service-content">
+      <div class="service-top">
+        <div class="service-icon-wrap" style="background:rgba(212,168,83,0.1)">
+          <svg viewBox="0 0 24 24" style="color:#D4A853"><circle cx="13.5" cy="6.5" r="2.5"/><path d="M17.5 10.5c1.7 0 3 1.3 3 3v1H21"/><circle cx="8.5" cy="6.5" r="2.5"/><path d="M3 14v-1a3 3 0 0 1 3-3h5a3 3 0 0 1 3 3v1"/></svg>
+        </div>
+        <div class="service-price-badge" style="color:#D4A853">$20</div>
+      </div>
+      <h3>Brending paketi</h3>
+      <p class="desc">To'liq brending paketi: logo, rang palitrasi va vizual identifikatsiya.</p>
+      <div class="feature-list">
+        <div class="feature-row"><div class="feature-check" style="background:rgba(212,168,83,0.13)"><svg viewBox="0 0 24 24" style="color:#D4A853"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Logo dizayni</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(212,168,83,0.13)"><svg viewBox="0 0 24 24" style="color:#D4A853"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Rang palitrasi</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(212,168,83,0.13)"><svg viewBox="0 0 24 24" style="color:#D4A853"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Shrift tanlash</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(212,168,83,0.13)"><svg viewBox="0 0 24 24" style="color:#D4A853"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Ijtimoiy tarmoq shablonlari</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(212,168,83,0.13)"><svg viewBox="0 0 24 24" style="color:#D4A853"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Brand guideline</span></div>
+      </div>
+      <div class="order-row" style="color:#D4A853">Buyurtma berish <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+    </div>
+  </a>
+
+  <!-- Service 4 -->
+  <a href="https://t.me/abduxalidov" target="_blank" class="service-card">
+    <div class="service-accent purple"></div>
+    <div class="service-content">
+      <div class="service-top">
+        <div class="service-icon-wrap" style="background:rgba(171,71,188,0.1)">
+          <svg viewBox="0 0 24 24" style="color:#AB47BC"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        </div>
+        <div class="service-price-badge" style="color:#AB47BC">$150</div>
+      </div>
+      <h3>Mobil ilova</h3>
+      <p class="desc">Android va iOS uchun zamonaviy mobil ilova ishlab chiqamiz.</p>
+      <div class="feature-list">
+        <div class="feature-row"><div class="feature-check" style="background:rgba(171,71,188,0.13)"><svg viewBox="0 0 24 24" style="color:#AB47BC"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Cross-platform</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(171,71,188,0.13)"><svg viewBox="0 0 24 24" style="color:#AB47BC"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Push bildirishnomalar</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(171,71,188,0.13)"><svg viewBox="0 0 24 24" style="color:#AB47BC"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Admin panel</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(171,71,188,0.13)"><svg viewBox="0 0 24 24" style="color:#AB47BC"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">API integratsiya</span></div>
+        <div class="feature-row"><div class="feature-check" style="background:rgba(171,71,188,0.13)"><svg viewBox="0 0 24 24" style="color:#AB47BC"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feature-text">Play Market/App Store</span></div>
+      </div>
+      <div class="order-row" style="color:#AB47BC">Buyurtma berish <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+    </div>
+  </a>
+
+  <a href="https://t.me/anvarov_bexruzbek" target="_blank" class="bottom-cta">
+    <svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+    Telegram orqali buyurtma berish
+  </a>
+
+  <div class="footer">
+    <div class="footer-line"></div>
+    <p>&copy; Bexruzbek SMM. All rights reserved</p>
+  </div>
+</div>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+</script>
+
+</body>
+</html>
